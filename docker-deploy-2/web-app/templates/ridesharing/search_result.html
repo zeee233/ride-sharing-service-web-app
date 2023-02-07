@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Search Results</h1>
+{% if rides %}
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 5px;
+        text-align: center;
+    }
+
+    th {
+        width: 5%;
+    }
+
+    td {
+        width: 5%;
+    }
+</style>
+<table>
+    <thead>
+        <tr>
+            <th>Destination</th>
+            <th>Arrival Date and Time</th>
+            <th>Number of Passengers</th>
+            <th>Vehicle Type</th>
+            <th>Is Shared</th>
+            <th>Join Ride</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ride in rides %}
+        <tr>
+            <td>{{ ride.destination }}</td>
+            <td>{{ ride.arrival_date_time }}</td>
+            <td>{{ ride.number_passengers }}</td>
+            <td>{{ ride.vehicle_type }}</td>
+            <td>{{ ride.is_shared }}</td>
+            <td><a href="{% url 'join_ride' ride.id number_passengers %}">Join</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No results found.</p>
+{% endif %}
+{% endblock %}

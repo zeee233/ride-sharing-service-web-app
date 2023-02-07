@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Vehicle Information</h1>
+
+{% if status == "confirmed" or status == "completed" %}
+
+<p>Vehicle Type: {{ vehicle.vehicle_type }}</p>
+<p>Driver Name: {{ vehicle.user.username }}</p>
+<p>License Plate: {{ vehicle.license_plate_number }}</p>
+<p>max_passengers: {{ vehicle.max_passengers }}</p>
+<p>special_vehicle_info: {{ vehicle.special_vehicle_info }}</p>
+{% else %}
+<p>Vehicle information is not available as the ride is not confirmed or completed</p>
+{% endif %}
+
+<h1>Ride Information</h1>
+<p>total_passengers: {{ ride_owner.number_passengers }}</p>
+<h1>Rideowner Information</h1>
+<p>name: {{ ride_owner.user.username }}</p>
+<p>number_requested: {{ ride_owner.number_requested }}</p>
+
+<h1>Ridesharer Information</h1>
+{% for ride in ride_sharers %}
+<p>name: {{ ride.user.username }}</p>
+<p>number_passengers: {{ ride.number_passengers }}</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,25 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+Hi {{ user.username }}!
+<p><a href="{% url 'request_ride' %}">Request_ride</a></p>
+<p><a href="{% url 'My_ride' %}">My ride</a></p>
+<p><a href="{% url 'driver_info' %}">driver info</a></p>
+<p><a href="{% url 'register_driver' %}">Driver Registration</a></p>
+<p><a href="{% url 'search_result' %}">All rides</a></p>
+<p><a href="{% url 'search_ride' %}">Join ride</a></p>
+<p><a href="{% url 'search_ride_driver' %}">For driver search</a></p>
+<p><a href="{% url 'search_driver_confirmorder' %}">My on going order</a></p>
+
+
+
+<p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}

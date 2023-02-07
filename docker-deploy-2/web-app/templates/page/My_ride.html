@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if messages %}
+
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+</ul>
+{% endif %}
+<h1>RideOwner</h1>
+<p>Username: {{ user.username }}</p>
+<table border="1">
+    <thead>
+        <tr>
+            <th>user</th>
+            <th>destination</th>
+            <th>arrival_date_time</th>
+            <th>number_passengers</th>
+            <th>number_requested</th>
+            <th>vehicle_type</th>
+            <th>special_requests</th>
+            <th>is_shared</th>
+            <th>status</th>
+            <th>driver_id</th>
+            <th>Edit</th>
+            <th>Drive detail</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for owner in rideOwner %}
+        <tr>
+            <td>{{ owner.user }}</td>
+            <td>{{ owner.destination }}</td>
+            <td>{{ owner.arrival_date_time }}</td>
+            <td>{{ owner.number_passengers }}</td>
+            <td>{{ owner.number_requested }}</td>
+            <td>{{ owner.vehicle_type }}</td>
+            <td>{{ owner.special_requests }}</td>
+            <td>{{ owner.is_shared }}</td>
+            <td>{{ owner.status }}</td>
+            <td>{{ owner.driver_id }}</td>
+            <td><a href="{% url 'edit_ride_owner' owner.id %}">edit</a></td>
+            <td><a href="{% url 'show_vehicle_info_owner' owner.id %}">see</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<h1>RideSharer</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>user</th>
+            <th>destination</th>
+            <th>earliest_arrival</th>
+            <th>latest_arrival</th>
+            <th>number_passengers</th>
+            <th>Edit</th>
+            <th>Drive detail</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ownerSharer in rideSharer %}
+        <tr>
+            <td>{{ ownerSharer.user }}</td>
+            <td>{{ ownerSharer.destination }}</td>
+            <td>{{ ownerSharer.earliest_arrival }}</td>
+            <td>{{ ownerSharer.latest_arrival }}</td>
+            <td>{{ ownerSharer.number_passengers }}</td>
+            <td><a href="{% url 'edit_ride_sharer' ownerSharer.id %}">edit</a></td>
+            <td><a href="{% url 'show_vehicle_info_sharer' ownerSharer.id %}">see</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<button><a href="{% url 'home' %}">Home</a></button>
+{% endblock %}

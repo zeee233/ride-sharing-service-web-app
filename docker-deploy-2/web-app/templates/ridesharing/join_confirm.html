@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>You have successfully joined the ride!</h1>
+<p>Your ride details:</p>
+<ul>
+    <li>Destination: {{ ride.destination }}</li>
+    <li>Arrival Date and Time: {{ ride.arrival_date_time }}</li>
+    <li>Number of Passengers: {{ ride.number_passengers }}</li>
+    <li>Vehicle Type: {{ ride.vehicle_type }}</li>
+    <button><a href="{% url 'home' %}">Home</a></button>
+</ul>
+{% endblock %}

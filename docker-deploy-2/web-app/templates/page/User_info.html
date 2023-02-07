@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>User Information</h1>
+<p>Username: {{ driver.user.username }}</p>
+<p>Vehicle Type: {{ driver.vehicle_type }}</p>
+<p>License Plate: {{ driver.license_plate_number }}</p>
+<p>max_passengers: {{ driver.max_passengers }}</p>
+<p>special_vehicle_info: {{ driver.special_vehicle_info }}</p>
+<button><a href="{% url 'home' %}">Home</a></button>
+{% endblock %}

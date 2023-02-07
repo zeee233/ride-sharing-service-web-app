@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>RideOwner</h1>
+<p>Username: {{ user.username }}</p>
+<table border="1">
+    <thead>
+        <tr>
+            <th>user</th>
+            <th>destination</th>
+            <th>arrival_date_time</th>
+            <th>number_passengers</th>
+            <th>vehicle_type</th>
+            <th>special_requests</th>
+            <th>is_shared</th>
+            <th>status</th>
+            <th>driver_id</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for owner in rideOwner %}
+        <tr>
+            <td>{{ owner.user }}</td>
+            <td>{{ owner.destination }}</td>
+            <td>{{ owner.arrival_date_time }}</td>
+            <td>{{ owner.number_passengers }}</td>
+            <td>{{ owner.vehicle_type }}</td>
+            <td>{{ owner.special_requests }}</td>
+            <td>{{ owner.is_shared }}</td>
+            <td>{{ owner.status }}</td>
+            <td>{{ owner.driver_id }}</td>
+            <td><a href="{% url 'edit_ride' ride.id %}">edit</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

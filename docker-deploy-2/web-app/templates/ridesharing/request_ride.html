@@ -1,0 +1,32 @@
+<!-- request_ride.html -->
+<form action="{% url 'request_ride' %}" method="post">
+    {% csrf_token %}
+    <h1>Request a Ride</h1>
+    <div>
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination">
+    </div>
+    <div>
+        <label for="arrival_date_time">Arrival Date and Time:</label>
+        <input type="datetime-local" id="arrival_date_time" name="arrival_date_time">
+    </div>
+    <div>
+        <label for="number_passengers">Number of Passengers:</label>
+        <input type="number" id="number_passengers" name="number_passengers">
+    </div>
+    <div>
+        <label for="vehicle_type">Vehicle Type:</label>
+        <input type="text" id="vehicle_type" name="vehicle_type">
+    </div>
+    <div>
+        <label for="special_requests">Special Requests:</label>
+        <textarea id="special_requests" name="special_requests"></textarea>
+    </div>
+    <div>
+        <label for="is_shared">Is Shared:</label>
+        <input type="checkbox" id="is_shared" name="is_shared">
+    </div>
+    <button><a href="{% url 'home' %}">Home</a></button>
+    <button type="submit">Submit</button>
+</form>
+

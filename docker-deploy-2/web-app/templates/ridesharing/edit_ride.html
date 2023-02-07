@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if status == "open" %}
+<h1>Edit Ride</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+{% else %}
+<p>You cannot edit the ride as the ride is confirmed or completed</p>
+{% endif %}
+{% endblock %}

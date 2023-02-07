@@ -1,0 +1,16 @@
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="destination">Destination:</label>
+    <input type="text" id="destination" name="destination">
+    <br><br>
+    <label for="earliest_arrival">Earliest Arrival:</label>
+    <input type="datetime-local" id="earliest_arrival" name="earliest_arrival">
+    <br><br>
+    <label for="latest_arrival">Latest Arrival:</label>
+    <input type="datetime-local" id="latest_arrival" name="latest_arrival">
+    <br><br>
+    <label for="number_passengers">Number of Passengers:</label>
+    <input type="number" id="number_passengers" name="number_passengers">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
