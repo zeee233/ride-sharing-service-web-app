@@ -58,6 +58,7 @@
             <th>earliest_arrival</th>
             <th>latest_arrival</th>
             <th>number_passengers</th>
+            <th>status</th>
             <th>Edit</th>
             <th>Drive detail</th>
         </tr>
@@ -70,6 +71,7 @@
             <td>{{ ownerSharer.earliest_arrival }}</td>
             <td>{{ ownerSharer.latest_arrival }}</td>
             <td>{{ ownerSharer.number_passengers }}</td>
+            <td>{{ ownerSharer.ride_owner.status }}</td>
             <td><a href="{% url 'edit_ride_sharer' ownerSharer.id %}">edit</a></td>
             <td><a href="{% url 'show_vehicle_info_sharer' ownerSharer.id %}">see</a></td>
         </tr>

@@ -34,6 +34,7 @@
             <th>Vehicle Type</th>
             <th>Is Shared</th>
             <th>takes the order</th>
+            <th>Ride detail</th>
         </tr>
     </thead>
     <tbody>
@@ -45,6 +46,7 @@
             <td>{{ ride.vehicle_type }}</td>
             <td>{{ ride.is_shared }}</td>
             <td><a href="{% url 'ride_complete' ride.id %}">completed</a></td>
+            <td><a href="{% url 'show_vehicle_info_owner' ride.id %}">see</a></td>
         </tr>
         {% endfor %}
     </tbody>

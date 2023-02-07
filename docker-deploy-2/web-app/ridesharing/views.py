@@ -112,14 +112,6 @@ def join_ride(request, ride_id,number_passengers):
                                         earliest_arrival=ride.arrival_date_time,
                                         latest_arrival=ride.arrival_date_time,
                                         number_passengers=number_passengers)
-    #sending email
-    send_mail(
-        'share ride order confirmed',  # 主題
-        'Your sharer ride order confirmed',  # 訊息
-        'rideshareouch@outlook.com',  # 寄件人的電子郵件地址
-        [sharer.user.email],  # 收件人電子郵件地址列表
-        fail_silently=False,  # 設置為 True 可以靜默忽略錯誤
-    )
     return render(request, 'ridesharing/join_confirm.html', {'ride': ride})
 
 #for driver
