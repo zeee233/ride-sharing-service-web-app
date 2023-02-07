@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ejjbm%xlwu%2njkgt-q_(b!l&-^2*^f8v$blyo21$cf6pm=9f#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web']
 
 
 # Application definition
@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'project1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'project1',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '114338',
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
@@ -137,5 +137,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.office365.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'bigjjrideservice@outlook.com'
-EMAIL_HOST_PASSWORD = 'BigJJ123!'
+EMAIL_HOST_USER = 'rideshareouch@outlook.com'
+EMAIL_HOST_PASSWORD = 'rideShare123'
+
+CSRF_TRUSTED_ORIGINS = ['http://*.vm.duke.edu:8000','http://*.127.0.0.1:8000','http://localhost:8000']

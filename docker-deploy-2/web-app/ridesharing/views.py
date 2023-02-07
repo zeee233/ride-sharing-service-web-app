@@ -116,7 +116,7 @@ def join_ride(request, ride_id,number_passengers):
     send_mail(
         'share ride order confirmed',  # 主題
         'Your sharer ride order confirmed',  # 訊息
-        'bigjjrideservice@outlook.com',  # 寄件人的電子郵件地址
+        'rideshareouch@outlook.com',  # 寄件人的電子郵件地址
         [sharer.user.email],  # 收件人電子郵件地址列表
         fail_silently=False,  # 設置為 True 可以靜默忽略錯誤
     )
@@ -146,14 +146,14 @@ def take_ride(request, ride_id):
     send_mail(
         'Order confirmed(ride owner)',  # 主題
         'You are ride owner and your order confirmed',  # 訊息
-        'bigjjrideservice@outlook.com',  # 寄件人的電子郵件地址
+        'rideshareouch@outlook.com',  # 寄件人的電子郵件地址
         [ride.user.email],  # 收件人電子郵件地址列表
         fail_silently=False,  # 設置為 True 可以靜默忽略錯誤
     ) 
     send_mail(
         'Order confirmed(ride sharer)',  # 主題
         'You are ride sharer and your order confirmed',  # 訊息
-        'bigjjrideservice@outlook.com',  # 寄件人的電子郵件地址
+        'rideshareouch@outlook.com',  # 寄件人的電子郵件地址
         [ride_sharer.user.email for ride_sharer in ride_sharers],  # 收件人電子郵件地址列表
         fail_silently=False,  # 設置為 True 可以靜默忽略錯誤
     )
@@ -175,14 +175,14 @@ def ride_complete(request, ride_id):
     send_mail(
         'Order completed(ride owner)',  # 主題
         'You are ride owner and your order completed',  # 訊息
-        'bigjjrideservice@outlook.com',  # 寄件人的電子郵件地址
+        'rideshareouch@outlook.com',  # 寄件人的電子郵件地址
         [ride.user.email],  # 收件人電子郵件地址列表
         fail_silently=False,  # 設置為 True 可以靜默忽略錯誤
     )
     send_mail(
         'Order completed(ride sharer)',  # 主題
         'You are ride sharer and your order completed',  # 訊息
-        'bigjjrideservice@outlook.com',  # 寄件人的電子郵件地址
+        'rideshareouch@outlook.com',  # 寄件人的電子郵件地址
         [ride_sharer.user.email for ride_sharer in ride_sharers],  # 收件人電子郵件地址列表
         fail_silently=False,  # 設置為 True 可以靜默忽略錯誤
     )
