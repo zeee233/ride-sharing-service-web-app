@@ -1,0 +1,14 @@
+1. A driver cannot re-register after the initial registration. 
+Fix: When a driver re-registers, we will update the old data to the new one by using function:Driver.objects.update_or_create
+
+2. The number of sharers should be less than the number of passengers minus the number of the owner. 
+Fix: We redo the function. If the car capacity is larger than the rider owner number plus the ride sharer, then it can be searched. Otherwise, it can not be searched 
+
+3. The passenger count should be updated when joining a ride. 
+Fix: We separate it into two numbers. One is the total number of people accepted by the ride owner. Another one is the total number in this individual ride. 
+
+4. If the user_id is 0, the user will be set as the driver. 
+Fix: We put the initial number for the use_id as NULL 
+
+5. An error will occur when a non-driver tries to query the driver_info. 
+Fix: We keep the blank for every detail when the user hasn't registered to be a driver by using a try exception. 
